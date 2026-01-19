@@ -1,67 +1,67 @@
-# Visionaire - Hệ Thống Quản Lý Cửa Hàng Kính Mắt
+# Visionaire - Eyewear Store Management System
 
-## 📋 Giới Thiệu
+## 📋 Introduction
 
-Visionaire là hệ thống quản lý toàn diện cho cửa hàng kính mắt, được xây dựng trên nền tảng .NET 10 với kiến trúc MVC. Hệ thống cung cấp các chức năng quản lý bán hàng, tồn kho, đơn hàng và khách hàng một cách hiệu quả.
+Visionaire is a comprehensive management system for eyewear stores, built on .NET 10 platform with MVC architecture. The system provides efficient functionality for sales management, inventory, orders, and customer management.
 
-## 🚀 Công Nghệ Sử Dụng
+## 🚀 Technology Stack
 
 - **Framework:** .NET 10
-- **Kiến trúc:** MVC (Model-View-Controller)
+- **Architecture:** MVC (Model-View-Controller)
 - **Database:** SQL Server
 - **ORM:** Entity Framework Core
 
-## 👥 Phân Quyền Hệ Thống
+## 👥 System Roles
 
-### 1. **Customer (Khách hàng)**
-- Duyệt danh mục, lọc, tìm kiếm sản phẩm kính, lens và các dịch vụ khác
-- Xem chi tiết sản phẩm (kính gọng, size, màu, giá, ...), hình ảnh sản phẩm 2D, 3D
-- Đặt mua kính theo các loại đơn hàng:
-  - Cơ sản (sản phẩm có sẵn)
-  - Pre-order (đặt trước)
-  - Prescription order (mua kính + làm tròng theo đơn kính)
-- Quản lý giỏ hàng, checkout & thanh toán
-- Quản lý tài khoản, lịch sử đơn hàng, yêu cầu đổi/trả
-- **Tính năng đặc biệt:** Virtual Glasses Try On - Thử kính ảo với các màu kính, size kính phù hợp với khuôn mặt
+### 1. **Customer**
+- Browse catalog, filter, and search for eyewear products, lenses, and other services
+- View product details (frames, size, color, price, etc.), 2D and 3D product images
+- Place orders for different order types:
+  - Standard (available products)
+  - Pre-order (advance booking)
+  - Prescription order (purchase glasses + lens fabrication according to prescription)
+- Manage shopping cart, checkout & payment
+- Manage account, order history, return/exchange requests
+- **Special Feature:** Virtual Glasses Try On - Try glasses virtually with different colors and sizes that fit your face
 
 ### 2. **Sales/Support Staff**
-- Tiếp nhận và xử lý đơn hàng
-- Kiểm tra các thông số prescription và liên hệ hỗ trợ khách hàng điều chỉnh
-- Xác nhận đơn, chuyển cho bộ phận Operations Staff
-- Thực hiện giao vận, gia công/làm kính
-- Xử lý đơn pre-order
-- Xử lý khiếu nại: đổi trả, bảo hành, hoàn tiền
+- Receive and process orders
+- Verify prescription parameters and contact customers for adjustments
+- Confirm orders, forward to Operations Staff
+- Handle shipping, lens processing and fabrication
+- Process pre-orders
+- Handle complaints: returns, warranty, refunds
 
 ### 3. **Operations Staff**
-- Đóng gói sản phẩm, tạo vận đơn, cập nhật tracking
-- Vận đơn pre-order: nhận hàng về, cập nhật kho, thực hiện quy trình gói và vận chuyển
-- Vận đơn prescription: gia công lắp tròng, làm kính
-- Cập nhận trạng thái xử lý các đơn hàng theo từng loại đơn
+- Package products, create shipping labels, update tracking
+- Pre-order shipments: receive inventory, update stock, perform packaging and shipping
+- Prescription shipments: lens fabrication and assembly
+- Update processing status for orders by type
 
 ### 4. **Manager**
-- Quản lý các quy định nghiệp vụ, chính sách mua/đổi trả/bảo hành
-- Quản lý sản phẩm: cấu hình các biến thể thuộc tính sản phẩm
-- Quản lý giá bán gống/tròng/dịch vụ, combo (gọng + tròng), khuyến mãi
-- Quản lý người dùng, phân sự vận hành nghiệp vụ
-- Quản lý doanh thu
+- Manage business rules, purchase/return/warranty policies
+- Manage products: configure product variant attributes
+- Manage pricing for frames/lenses/services, combos (frame + lens), promotions
+- Manage users, assign operational responsibilities
+- Manage revenue
 
 ### 5. **System Admin**
-- Cấu hình và quản trị chức năng hệ thống
+- Configure and administer system functionality
 
 ## 🗄️ Database
 
-Script khởi tạo database được lưu trong thư mục `scriptDB/`:
-- `GlassStoreDB_Complete_Fixed_v2.sql` - Script tạo database đầy đủ
+Database initialization script is stored in `scriptDB/` folder:
+- `GlassStoreDB_Complete_Fixed_v2.sql` - Complete database creation script
 
-## 📦 Cài Đặt
+## �� Installation
 
-### Yêu Cầu Hệ Thống
+### System Requirements
 - .NET 10 SDK
-- SQL Server 2019 trở lên
-- Visual Studio 2022 hoặc VS Code
-- Node.js (cho các dependencies frontend)
+- SQL Server 2019 or higher
+- Visual Studio 2022 or VS Code
+- Node.js (for frontend dependencies)
 
-### Các Bước Cài Đặt
+### Installation Steps
 
 1. **Clone repository**
 ```bash
@@ -69,13 +69,13 @@ git clone <repository-url>
 cd Visionaire
 ```
 
-2. **Khởi tạo Database**
+2. **Initialize Database**
 ```bash
-# Kết nối SQL Server và chạy script
+# Connect to SQL Server and run script
 sqlcmd -S <server-name> -i scriptDB/GlassStoreDB_Complete_Fixed_v2.sql
 ```
 
-3. **Cấu hình Connection String**
+3. **Configure Connection String**
 ```json
 // appsettings.json
 {
@@ -96,7 +96,7 @@ dotnet build
 dotnet run
 ```
 
-## 🏗️ Cấu Trúc Dự Án
+## 🏗️ Project Structure
 
 ```
 Visionaire/
@@ -110,37 +110,37 @@ Visionaire/
 └── appsettings.json    # Configuration
 ```
 
-## 🎯 Tính Năng Chính
+## 🎯 Key Features
 
-### Quản Lý Sản Phẩm
-- Danh mục sản phẩm kính gọng (2D/3D)
-- Quản lý tròng kính và các dịch vụ kèm theo
-- Cấu hình biến thể: màu sắc, size, chất liệu
-- Quản lý giá và combo
+### Product Management
+- Eyewear frame catalog (2D/3D)
+- Manage lenses and related services
+- Configure variants: colors, sizes, materials
+- Manage pricing and combos
 
-### Quản Lý Đơn Hàng
-- **Đơn cơ sản**: Sản phẩm có sẵn
-- **Pre-order**: Đặt trước sản phẩm
-- **Prescription**: Đơn kính theo toa
+### Order Management
+- **Standard Orders**: Available products
+- **Pre-orders**: Advance booking
+- **Prescription Orders**: Prescription-based glasses
 
 ### Virtual Try-On
-- Thử kính ảo với camera
-- Gợi ý màu kính và size phù hợp với khuôn mặt
-- Tương tác 3D với sản phẩm
+- Try glasses virtually with camera
+- Suggest colors and sizes suitable for face shape
+- 3D product interaction
 
-### Quản Lý Khách Hàng
-- Lịch sử mua hàng
-- Quản lý đổi/trả/bảo hành
-- Chăm sóc khách hàng
+### Customer Management
+- Purchase history
+- Manage returns/exchanges/warranty
+- Customer care
 
-## 🔐 Bảo Mật
+## 🔐 Security
 - Authentication & Authorization
 - Role-based Access Control (RBAC)
 - Secure payment integration
 - Data encryption
 
 ## 📱 API Endpoints
-_(Sẽ cập nhật sau khi phát triển)_
+_(Will be updated after development)_
 
 ## 🧪 Testing
 ```bash
@@ -148,16 +148,16 @@ dotnet test
 ```
 
 ## 📝 Coding Standards
-- Tuân thủ C# Coding Conventions
+- Follow C# Coding Conventions
 - Clean Code principles
 - SOLID principles
 - Repository Pattern & Unit of Work
 
-## 📝 Quy Tắc Commit (Commit Convention)
+## 📝 Commit Convention
 
-Dự án tuân theo chuẩn **Conventional Commits** để đảm bảo lịch sử commit rõ ràng và dễ theo dõi.
+This project follows **Conventional Commits** standard to ensure clear and trackable commit history.
 
-### Cấu Trúc Commit Message
+### Commit Message Structure
 
 ```
 <type>(<scope>): <subject>
@@ -167,66 +167,66 @@ Dự án tuân theo chuẩn **Conventional Commits** để đảm bảo lịch s
 [optional footer]
 ```
 
-### Các Loại Type
+### Types
 
-| Type | Mô Tả | Ví Dụ |
+| Type | Description | Example |
 |------|-------|-------|
-| `feat` | Thêm tính năng mới | `feat(product): add virtual try-on feature` |
-| `fix` | Sửa lỗi | `fix(order): resolve payment gateway timeout` |
-| `docs` | Cập nhật tài liệu | `docs(readme): update installation guide` |
-| `style` | Thay đổi format code (không ảnh hưởng logic) | `style(controller): format code with prettier` |
-| `refactor` | Tái cấu trúc code | `refactor(service): optimize product query logic` |
-| `perf` | Cải thiện hiệu suất | `perf(database): add index for faster queries` |
-| `test` | Thêm hoặc sửa test | `test(order): add unit tests for order service` |
-| `build` | Thay đổi build system hoặc dependencies | `build(deps): update Entity Framework to 10.0.1` |
-| `ci` | Thay đổi CI/CD configuration | `ci(github): add automated testing workflow` |
-| `chore` | Các thay đổi khác không ảnh hưởng code | `chore(gitignore): ignore log files` |
-| `revert` | Hoàn tác commit trước đó | `revert: revert feat(product): add virtual try-on` |
+| `feat` | Add new feature | `feat(product): add virtual try-on feature` |
+| `fix` | Bug fix | `fix(order): resolve payment gateway timeout` |
+| `docs` | Documentation update | `docs(readme): update installation guide` |
+| `style` | Code format changes (no logic changes) | `style(controller): format code with prettier` |
+| `refactor` | Code refactoring | `refactor(service): optimize product query logic` |
+| `perf` | Performance improvement | `perf(database): add index for faster queries` |
+| `test` | Add or modify tests | `test(order): add unit tests for order service` |
+| `build` | Build system or dependency changes | `build(deps): update Entity Framework to 10.0.1` |
+| `ci` | CI/CD configuration changes | `ci(github): add automated testing workflow` |
+| `chore` | Other changes not affecting code | `chore(gitignore): ignore log files` |
+| `revert` | Revert previous commit | `revert: revert feat(product): add virtual try-on` |
 
-### Scope (Phạm vi)
+### Scope
 
-Scope là phần module/tính năng bị ảnh hưởng:
+Scope refers to the affected module/feature:
 
-- `product` - Quản lý sản phẩm
-- `order` - Quản lý đơn hàng
-- `customer` - Quản lý khách hàng
-- `auth` - Xác thực & phân quyền
-- `cart` - Giỏ hàng
-- `payment` - Thanh toán
-- `prescription` - Đơn kính theo toa
-- `inventory` - Quản lý kho
+- `product` - Product management
+- `order` - Order management
+- `customer` - Customer management
+- `auth` - Authentication & authorization
+- `cart` - Shopping cart
+- `payment` - Payment
+- `prescription` - Prescription orders
+- `inventory` - Inventory management
 - `database` - Database scripts/migrations
 - `api` - API endpoints
-- `ui` - Giao diện người dùng
+- `ui` - User interface
 
-### Subject (Tiêu đề)
+### Subject
 
-- Sử dụng câu mệnh lệnh, thì hiện tại: "add" không phải "added" hay "adds"
-- Không viết hoa chữ cái đầu
-- Không dùng dấu chấm (.) ở cuối
-- Giới hạn tối đa 50 ký tự
-- Viết bằng tiếng Anh
+- Use imperative mood, present tense: "add" not "added" or "adds"
+- Don't capitalize first letter
+- No period (.) at the end
+- Maximum 50 characters
+- Write in English
 
-### Body (Nội dung - Optional)
+### Body (Optional)
 
-- Giải thích **tại sao** thay đổi này, không phải **làm gì**
-- Sử dụng thì hiện tại
-- Ngắt dòng ở 72 ký tự
+- Explain **why** this change, not **what**
+- Use present tense
+- Wrap at 72 characters
 
 ### Footer (Optional)
 
-- Tham chiếu đến issue/ticket: `Refs: #123`
+- Reference issue/ticket: `Refs: #123`
 - Breaking changes: `BREAKING CHANGE: description`
-- Đóng issue: `Closes #123`
+- Close issue: `Closes #123`
 
-### Ví Dụ Cụ Thể
+### Examples
 
-#### 1. Commit đơn giản
+#### 1. Simple commit
 ```bash
 feat(product): add 3D model viewer for glasses
 ```
 
-#### 2. Commit với body
+#### 2. Commit with body
 ```bash
 fix(order): resolve duplicate order creation bug
 
@@ -237,7 +237,7 @@ to prevent duplicate submissions.
 Refs: #245
 ```
 
-#### 3. Commit breaking change
+#### 3. Breaking change commit
 ```bash
 refactor(api)!: change product API response structure
 
@@ -251,7 +251,7 @@ After: { id, name, price, variants: [{ color, size }] }
 Refs: #567
 ```
 
-#### 4. Commit với nhiều thay đổi
+#### 4. Commit with multiple changes
 ```bash
 feat(prescription): implement prescription order workflow
 
@@ -263,61 +263,61 @@ feat(prescription): implement prescription order workflow
 Closes #123, #124
 ```
 
-### Các Lệnh Hữu Ích
+### Useful Commands
 
 ```bash
-# Commit với message ngắn
+# Commit with short message
 git commit -m "feat(product): add search filter"
 
-# Commit với body
+# Commit with body
 git commit -m "feat(product): add search filter" -m "Allow users to filter by brand, price, and color"
 
-# Sửa commit message gần nhất
+# Amend last commit message
 git commit --amend
 
-# Xem lịch sử commit đẹp
+# View pretty commit history
 git log --oneline --graph --decorate
 ```
 
 ### Branch Naming Convention
 
-Tên branch cũng nên tuân theo quy tắc tương tự:
+Branch names should follow similar rules:
 
 ```
 <type>/<scope>-<short-description>
 ```
 
-**Ví dụ:**
+**Examples:**
 - `feat/product-virtual-tryon`
 - `fix/order-payment-timeout`
 - `docs/update-readme`
 - `refactor/optimize-database-queries`
 
-### Checklist Trước Khi Commit
+### Pre-Commit Checklist
 
-- [ ] Code đã được test và chạy thành công
-- [ ] Code tuân thủ coding standards
-- [ ] Đã xóa các comment không cần thiết và debug code
-- [ ] Commit message tuân thủ convention
-- [ ] Đã review lại các file thay đổi
-- [ ] Không commit các file sensitive (appsettings.json, .env)
+- [ ] Code tested and runs successfully
+- [ ] Code follows coding standards
+- [ ] Removed unnecessary comments and debug code
+- [ ] Commit message follows convention
+- [ ] Reviewed changed files
+- [ ] Don't commit sensitive files (appsettings.json, .env)
 
-## 🤝 Đóng Góp
+## 🤝 Contributing
 
-1. Fork dự án
-2. Tạo branch mới theo convention (`git checkout -b feat/amazing-feature`)
-3. Commit changes theo quy tắc (`git commit -m 'feat(product): add amazing feature'`)
+1. Fork the project
+2. Create new branch following convention (`git checkout -b feat/amazing-feature`)
+3. Commit changes following rules (`git commit -m 'feat(product): add amazing feature'`)
 4. Push to branch (`git push origin feat/amazing-feature`)
-5. Tạo Pull Request với mô tả chi tiết
+5. Create Pull Request with detailed description
 
 ## 📄 License
-_(Thêm license nếu có)_
+_(Add license if applicable)_
 
-## 👨‍💻 Tác Giả
-_(Thêm thông tin tác giả)_
+## 👨‍💻 Authors
+_(Add author information)_
 
-## 📞 Liên Hệ
-_(Thêm thông tin liên hệ)_
+## 📞 Contact
+_(Add contact information)_
 
 ## 🗺️ Roadmap
 
@@ -341,4 +341,4 @@ _(Thêm thông tin liên hệ)_
 
 ---
 
-**⚠️ Lưu ý:** Dự án đang trong giai đoạn phát triển. Một số tính năng có thể chưa hoàn thiện.
+**⚠️ Note:** Project is under development. Some features may not be fully completed.
