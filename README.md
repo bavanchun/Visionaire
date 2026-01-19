@@ -153,13 +153,162 @@ dotnet test
 - SOLID principles
 - Repository Pattern & Unit of Work
 
+## 📝 Quy Tắc Commit (Commit Convention)
+
+Dự án tuân theo chuẩn **Conventional Commits** để đảm bảo lịch sử commit rõ ràng và dễ theo dõi.
+
+### Cấu Trúc Commit Message
+
+```
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer]
+```
+
+### Các Loại Type
+
+| Type | Mô Tả | Ví Dụ |
+|------|-------|-------|
+| `feat` | Thêm tính năng mới | `feat(product): add virtual try-on feature` |
+| `fix` | Sửa lỗi | `fix(order): resolve payment gateway timeout` |
+| `docs` | Cập nhật tài liệu | `docs(readme): update installation guide` |
+| `style` | Thay đổi format code (không ảnh hưởng logic) | `style(controller): format code with prettier` |
+| `refactor` | Tái cấu trúc code | `refactor(service): optimize product query logic` |
+| `perf` | Cải thiện hiệu suất | `perf(database): add index for faster queries` |
+| `test` | Thêm hoặc sửa test | `test(order): add unit tests for order service` |
+| `build` | Thay đổi build system hoặc dependencies | `build(deps): update Entity Framework to 10.0.1` |
+| `ci` | Thay đổi CI/CD configuration | `ci(github): add automated testing workflow` |
+| `chore` | Các thay đổi khác không ảnh hưởng code | `chore(gitignore): ignore log files` |
+| `revert` | Hoàn tác commit trước đó | `revert: revert feat(product): add virtual try-on` |
+
+### Scope (Phạm vi)
+
+Scope là phần module/tính năng bị ảnh hưởng:
+
+- `product` - Quản lý sản phẩm
+- `order` - Quản lý đơn hàng
+- `customer` - Quản lý khách hàng
+- `auth` - Xác thực & phân quyền
+- `cart` - Giỏ hàng
+- `payment` - Thanh toán
+- `prescription` - Đơn kính theo toa
+- `inventory` - Quản lý kho
+- `database` - Database scripts/migrations
+- `api` - API endpoints
+- `ui` - Giao diện người dùng
+
+### Subject (Tiêu đề)
+
+- Sử dụng câu mệnh lệnh, thì hiện tại: "add" không phải "added" hay "adds"
+- Không viết hoa chữ cái đầu
+- Không dùng dấu chấm (.) ở cuối
+- Giới hạn tối đa 50 ký tự
+- Viết bằng tiếng Anh
+
+### Body (Nội dung - Optional)
+
+- Giải thích **tại sao** thay đổi này, không phải **làm gì**
+- Sử dụng thì hiện tại
+- Ngắt dòng ở 72 ký tự
+
+### Footer (Optional)
+
+- Tham chiếu đến issue/ticket: `Refs: #123`
+- Breaking changes: `BREAKING CHANGE: description`
+- Đóng issue: `Closes #123`
+
+### Ví Dụ Cụ Thể
+
+#### 1. Commit đơn giản
+```bash
+feat(product): add 3D model viewer for glasses
+```
+
+#### 2. Commit với body
+```bash
+fix(order): resolve duplicate order creation bug
+
+When user clicked submit button multiple times quickly,
+the system created multiple orders. Added debounce logic
+to prevent duplicate submissions.
+
+Refs: #245
+```
+
+#### 3. Commit breaking change
+```bash
+refactor(api)!: change product API response structure
+
+BREAKING CHANGE: Product API now returns nested object
+structure instead of flat structure. Frontend needs to be
+updated accordingly.
+
+Before: { id, name, price, color, size }
+After: { id, name, price, variants: [{ color, size }] }
+
+Refs: #567
+```
+
+#### 4. Commit với nhiều thay đổi
+```bash
+feat(prescription): implement prescription order workflow
+
+- Add prescription form validation
+- Create prescription processing service
+- Integrate with lens manufacturing API
+- Add order tracking for prescription orders
+
+Closes #123, #124
+```
+
+### Các Lệnh Hữu Ích
+
+```bash
+# Commit với message ngắn
+git commit -m "feat(product): add search filter"
+
+# Commit với body
+git commit -m "feat(product): add search filter" -m "Allow users to filter by brand, price, and color"
+
+# Sửa commit message gần nhất
+git commit --amend
+
+# Xem lịch sử commit đẹp
+git log --oneline --graph --decorate
+```
+
+### Branch Naming Convention
+
+Tên branch cũng nên tuân theo quy tắc tương tự:
+
+```
+<type>/<scope>-<short-description>
+```
+
+**Ví dụ:**
+- `feat/product-virtual-tryon`
+- `fix/order-payment-timeout`
+- `docs/update-readme`
+- `refactor/optimize-database-queries`
+
+### Checklist Trước Khi Commit
+
+- [ ] Code đã được test và chạy thành công
+- [ ] Code tuân thủ coding standards
+- [ ] Đã xóa các comment không cần thiết và debug code
+- [ ] Commit message tuân thủ convention
+- [ ] Đã review lại các file thay đổi
+- [ ] Không commit các file sensitive (appsettings.json, .env)
+
 ## 🤝 Đóng Góp
 
 1. Fork dự án
-2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Tạo Pull Request
+2. Tạo branch mới theo convention (`git checkout -b feat/amazing-feature`)
+3. Commit changes theo quy tắc (`git commit -m 'feat(product): add amazing feature'`)
+4. Push to branch (`git push origin feat/amazing-feature`)
+5. Tạo Pull Request với mô tả chi tiết
 
 ## 📄 License
 _(Thêm license nếu có)_
